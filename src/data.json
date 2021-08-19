@@ -1,0 +1,66 @@
+[
+    {
+        "id":1,
+        "title":"Evaluate the addition and deletion of user IDs1.",
+        "bgc":"rgba(242, 153, 74, 0.2)",
+        "action":"Pending",
+        "id_action":"#219653",
+        "id_action_title":"Minor"
+    },
+    {
+        "id":2,
+        "title":"Evaluate the addition and deletion of user IDs2.",
+        "action":"Pending",
+        "bgc":"rgba(242, 153, 74, 0.2)",
+        "id_action":"#F2994A",
+        "id_action_title":"Normal"
+    },
+    {
+        "id":3,
+        "title":"Evaluate the addition and deletion of user IDs3.",
+        "action":"Pending",
+        "bgc":"rgba(242, 153, 74, 0.2)",
+        "id_action":"#EB5757",
+        "id_action_title":"Critical"
+    },
+    {
+        "id":4,
+        "title":"Evaluate the addition and deletion of user IDs4.",
+        "action":"In Progress",
+        "bgc":"rgba(86, 204, 242, 0.2)",
+        "id_action":"#219653",
+        "id_action_title":"Minor"
+    },
+    {
+        "id":5,
+        "title":"Evaluate the addition and deletion of user IDs5.",
+        "action":"Canceled",
+        "bgc":"rgba(235, 87, 87, 0.2)",
+        "id_action":"#EB5757",
+        "id_action_title":"Critical"
+    },
+    {
+        "id":6,
+        "title":"Evaluate the addition and deletion of user IDs6.",
+        "action":"Canceled",
+        "bgc":"rgba(235, 87, 87, 0.2)",
+        "id_action":"#EB5757",
+        "id_action_title":"Critical"
+    },
+    {
+        "id":7,
+        "title":"Evaluate the addition and deletion of user IDs7.",
+        "action":"Canceled",
+        "bgc":"rgba(235, 87, 87, 0.2)",
+        "id_action":"#EB5757",
+        "id_action_title":"Critical"
+    },
+    {
+        "id":8,
+        "title":"Evaluate the addition and deletion of user IDs7.",
+        "action":"Completed",
+        "bgc":"rgba(39, 174, 96, 0.2)",
+        "id_action":"#EB5757",
+        "id_action_title":"Critical"
+    }
+]

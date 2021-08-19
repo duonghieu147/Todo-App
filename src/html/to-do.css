@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700&display=swap');
+body{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    /* background: #E5E5E5; */
+    /* width: 1440px; */
+    width: auto;
+    height: 900px;
+}
+/* Topbar  */
+.topbar{
+    margin: 80px 80px 0px 80px;  
+    display: flex; 
+    justify-content: space-between;
+}
+.topbar__search{
+    display: flex;
+}
+.topbar__search p{
+    margin-left: 15px;
+    color: #90A0B7;
+    font-size: 12px;
+    line-height: 15px;
+}
+.topbar__right{
+    display: flex;
+}
+.topbar__right__notifications{
+    margin-right: 35px;
+}
+.topbar__right__avatar img{
+    width: 26px;
+    height: 26px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* Todo Body  */
+.todo__body{
+    margin: 54px 255px 0 255px;
+}
+.title{
+    display: flex;
+}
+.title__text{
+    display: flex;
+    font-family: Poppins;
+    font-size: 36px;
+    line-height: 54px;
+    color: #1D262C;
+    align-self:baseline;
+}
+.title__text p{
+    color: palevioletred;
+    
+}
+.title__btn-add{
+    margin-left: 25px;
+    width: 139px;
+    height: 34px;
+    background: #884CB2;
+    border-radius: 10px;    
+    align-self:baseline;
+    color: #FFFFFF;
+}
+.onhold{
+    margin-top: 45px;
+}
+.onhold__title{
+    font-family: Poppins;
+    font-size: 18px;
+    line-height: 27px;
+    color: #1D262C;
+}
+.onhold__list{
+    margin-top: 15px;
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1D262C;
+}
+.onhold__list ul li{
+    display: flex;
+    justify-content: space-between;
+    /* height: 60px; */
+    align-self:center;
+}
+.onhold__list ul li:hover{
+    background: #F3F3F3;
+    border-radius: 10px;
+}
+.li__title{
+    width: 350px;
+    font-size: 14px;
+    line-height: 17px;
+}
+.li__action{
+    font-size: 11px;
+    line-height: 18px;
+    color: #F2994A;
+    background: rgba(242, 153, 74, 0.2);
+    border-radius: 8.5px;
+    padding: 5px;
+}
+.li__stt{
+    display: flex;
+}
+.li__stt_p{
+    margin-left: 10px;
+}
+.li__option{
+    border-radius: 50%;
+    background:rgba(242, 242, 242, 0.2); 
+}
+
