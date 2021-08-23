@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import '../html/login.css'
+import '../styles/login.css'
 
 const SignupSchema = yup.object().shape({
     username: yup.string().required(),
@@ -63,7 +63,7 @@ function checkUser(username, password) {
                 if (username == element.username && password == element.password) {
                     alert('Login Success');
                     localStorage.setItem('accessToken', true);
-                    window.location.replace('/todo')
+                    window.location.replace('/')
                     tb = true
                 }
             }

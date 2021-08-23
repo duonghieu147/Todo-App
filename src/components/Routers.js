@@ -12,13 +12,15 @@ import TaskDetails from '../views/TaskDetails';
 import Page404 from '../views/Page404';
 import Test from './Test';
 
+
 function Routers(props) {
 
     return (
         <Router>
             <Switch>
-                <Route exact path="/login">
-                    <Login />
+                <Route exact path="/login" render={() => {
+                    return (localStorage.getItem("accessToken")==null) ? <Login /> : <Redirect to="/" />
+                    }}>
                 </Route>
                 {/* <Route exact path="/todo">
                     <ToDo />
@@ -26,20 +28,20 @@ function Routers(props) {
                 <Route exact path="/taskdetails">
                     <TaskDetails />
                 </Route> */}
-                <Route exact path="/todo" render={() => {
-                    return localStorage.getItem("accessToken") ? <ToDo /> : <Redirect to="/" />
+                <Route exact path="/" render={() => {
+                    return localStorage.getItem("accessToken") ? <ToDo /> : <Redirect to="/login" />
                     }}>
                 </Route>
-                <Route exact path="/taskdetails" render={() => {
-                    return localStorage.getItem("accessToken") ? <TaskDetails /> : <Redirect to="/" />
+                <Route exact path="/taskdetails/:id" render={() => {
+                    return localStorage.getItem("accessToken") ? <TaskDetails /> : <Redirect to="/login" />
                     }}>
                 </Route>
                 <Route exact path="/test">
                     <Test />
                 </Route>
-                <Route exact path="/">
+                {/* <Route exact path="/">
                     <Login />
-                </Route>
+                </Route> */}
                 <Route path="*">
                     <Page404 />
                 </Route>

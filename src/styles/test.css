@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700&display=swap');
+
+.login{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    width: auto;
+    height: 900px;
+    display: flex;
+    justify-content: space-between;
+    background: #884CB2;
+}
+.login__left h1{
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 82px;
+    color: #FFFFFF;
+    margin-left: 150px;
+    margin-top: 285px;
+    width: 355px;
+}
+.login__right{
+    margin-right: 150px;
+    margin-top: 285px;
+    color: #FFFFFF;
+    width: 460px;
+    text-align: center;
+}
+.login__right span{
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 25px;
+}
+.login__right .form-group{
+    color: #FFFFFF;
+}
+.login__right input{
+    width:460px;
+    height: 60px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-sizing: border-box;
+}
+ 
+.login__right   button[type="submit"],
+input[type="submit"]{
+    padding :0;
+    margin: 0;
+    background: #1D262C;
+    border-radius: 0px 0px 4px 4px;
+    width:460px;
+    height: 60px;
+    color: #FFFFFF;
+}
+
+.login__right button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background: #bf1650;
+}
+
+input::placeholder {
+    color: black;
+  }
+
+
+  .login__right  p {
+    color: black;
+  }
+  
+  .login__right  p::before {
+    display: inline;
+    content: "⚠ ";
+  }

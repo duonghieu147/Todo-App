@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 
 function Item(props) {
     const [action, setAction] = useState(props.action);
     const [bgc, setBgc] = useState(props.bgc);
+    const id = props.id;
+    const urlTask="/taskdetails/"+id
     return (
         <div>
             <li>
-                <p className="li__title">{props.title}</p>
+                <Link to={urlTask}><p className="li__title" >{props.title}</p></Link>
+                {/* <a href='/taskdetails'></a> */}
                 <p className="li__action" style={{ background: bgc }}>{action}</p>
                 <div className="li__stt">
                     <svg width={8} height={8} viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">

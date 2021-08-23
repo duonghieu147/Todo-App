@@ -1,6 +1,12 @@
 import React from 'react';
-import '../html/page404.css';
-import Back from '../svg';
+import '../styles/page404.css';
+import {Back} from '../svg';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function Page404(props) {
     return (
@@ -12,7 +18,7 @@ function Page404(props) {
                 temporarily unavailable.</div>
             <div className="page404__back">
                 <button className="back">
-                    <Back/>
+                    <Link to="/"><Back /></Link>
                 </button>
                 <p>Back to Home Page</p>
             </div>

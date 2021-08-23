@@ -1,14 +1,28 @@
-import React from 'react';
-import '../html/task-details.css';
-import Back from '../svg';
-
+import React,{ useState } from 'react';
+import '../styles/task-details.css';
+import {Back} from '../svg';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
+import data from '../data.json';
 
 function TaskDetails(props) {
+    let {id} =useParams()
+    if(!data[id-1])
+    {
+        window.location.replace('/page404')
+
+    }
+    const [detail, setDetail] = useState(data[id-1]);
     return (
         <div className="task">
             <div className="task-details">
                 <button className="back">
-                    <Back/>
+                <Link to="/"><Back/></Link>
                 </button>
                 <div className="task-details__title">
                     <p className="title">Task Details</p>
@@ -26,9 +40,9 @@ function TaskDetails(props) {
                     <p>Description</p>
                 </div>
                 <div className="task-content__right">
-                    <p className="title">Evaluate the addition and deletion of user IDs.</p>
-                    <p className="status">Pending</p>
-                    <p className="priority">Minor</p>
+                    <p className="title">{detail.title}</p>
+                    <p className="status" >{detail.action}</p>
+                    <p className="priority" >{detail.id_action_title}</p>
                     <p className="create-date">19-07-2021 at 10:24 AM</p>
                     <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
