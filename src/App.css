@@ -59,8 +59,8 @@ body{
     margin-left: 25px;
     width: 139px;
     height: 34px;
-    background: #884CB2;
-    border-radius: 10px;    
+    /* background: #884CB2;
+    border-radius: 10px;     */
     align-self:baseline;
     color: #FFFFFF;
 }
@@ -108,7 +108,7 @@ body{
 }
 .li__stt{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     min-width:70px;
 }
 .li__stt_p{
@@ -157,4 +157,23 @@ body{
 .dropdown__content .in-progress,.completed,.canceled{
     display: flex;
     justify-content: space-between;
+}
+
+
+/* Color  */
+.stt_pending{
+    background: rgba(242, 153, 74, 0.2);
+    color: #F2994A;
+}
+.stt_progress{
+    background: rgba(86, 204, 242, 0.2);
+    color: #56CCF2;
+}
+.stt_completed{
+    background: rgba(39, 174, 96, 0.2);
+    color: #219653;
+}
+.stt_canceled{
+    background: rgba(235, 87, 87, 0.2);
+    color: #EB5757;
 }

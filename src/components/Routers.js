@@ -11,10 +11,10 @@ import Login from '../views/Login';
 import TaskDetails from '../views/TaskDetails';
 import Page404 from '../views/Page404';
 import Test from './Test';
+import Delete from './Delete';
 
 
 function Routers(props) {
-
     return (
         <Router>
             <Switch>
@@ -22,12 +22,6 @@ function Routers(props) {
                     return (localStorage.getItem("accessToken")==null) ? <Login /> : <Redirect to="/" />
                     }}>
                 </Route>
-                {/* <Route exact path="/todo">
-                    <ToDo />
-                </Route>
-                <Route exact path="/taskdetails">
-                    <TaskDetails />
-                </Route> */}
                 <Route exact path="/" render={() => {
                     return localStorage.getItem("accessToken") ? <ToDo /> : <Redirect to="/login" />
                     }}>
@@ -38,6 +32,9 @@ function Routers(props) {
                 </Route>
                 <Route exact path="/test">
                     <Test />
+                </Route>
+                <Route exact path="/antdesign">
+                    <Delete />
                 </Route>
                 {/* <Route exact path="/">
                     <Login />

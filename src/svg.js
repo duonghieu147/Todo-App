@@ -67,3 +67,19 @@ export class Canceled extends Component {
         );
     }
 }
+export class Note extends Component {
+    render() {
+        return (
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="3.00098" cy="3.0493" rx="3" ry="2.85789" fill="url(#paint0_linear)" fill-opacity="0.7" />
+                <defs>
+                    <linearGradient id="paint0_linear" x1="0.222331" y1="-1.13745e-08" x2="5.74705" y2="5.58053" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F3477A" />
+                        <stop offset="1" stop-color="#884CB2" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        );
+    }
+}
+

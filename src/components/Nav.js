@@ -1,7 +1,16 @@
 import React from 'react';
+import { Menu, Dropdown, Avatar, Button } from 'antd';
+
+const menu = (
+    <Menu>
+        <Menu.Item key="0">
+            <a href="/" onClick={() => localStorage.removeItem('accessToken')}>Logout</a >
+        </Menu.Item>
+    </Menu>
+);
 
 function Nav(props) {
-    
+
     return (
         <div className="topbar">
             <div className="topbar__search">
@@ -11,11 +20,11 @@ function Nav(props) {
             <div className="topbar__right">
                 <div className="topbar__right__notifications"><i className="fal fa-bell" /></div>
                 <div className="topbar__right__avatar">
-                    <img src='../images/avatar.png' alt="" />
-                    <div id="myDropdown" class="dropdown-content">
-                        <a  href="/" onClick={() => localStorage.removeItem('accessToken')}>Logout</a >
-                        {/* <a href="#about">About</a> */}
-                    </div>
+                    <Dropdown overlay={menu} trigger={['click']}>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            <Avatar src="../images/avatar.png" />
+                        </a>
+                    </Dropdown>
                 </div>
             </div>
         </div>

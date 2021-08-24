@@ -1,6 +1,4 @@
-import React,{ useState } from 'react';
-import '../styles/task-details.css';
-import {Back} from '../svg';
+import React, { useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,28 +6,48 @@ import {
     Link,
     useParams
 } from "react-router-dom";
+import { Button, message } from 'antd';
+import 'antd/dist/antd.css';
+import '../styles/task-details.css';
+import { Back } from '../svg';
 import data from '../data.json';
+import Edit from '../components/Edit';
+import Delete from '../components/Delete';
+
+function confirm(e) {
+    console.log(e);
+    message.success('Click on Yes');
+}
+
+function cancel(e) {
+    console.log(e);
+    message.error('Click on No');
+}
 
 function TaskDetails(props) {
-    let {id} =useParams()
-    if(!data[id-1])
-    {
+    let { id } = useParams()
+    if (!data[id - 1]) {
         window.location.replace('/page404')
-
     }
-    const [detail, setDetail] = useState(data[id-1]);
+    const [detail, setDetail] = useState(data[id - 1]);
+
+    
     return (
         <div className="task">
             <div className="task-details">
                 <button className="back">
-                <Link to="/"><Back/></Link>
+                    <Link to="/"><Back /></Link>
                 </button>
                 <div className="task-details__title">
                     <p className="title">Task Details</p>
                     <p className="id_task">#0f417571-1fa9-468d-9c81-72fe465a5762</p>
                 </div>
-                <button className="task-details__edit"><i className="fas fa-edit" />Edit</button>
-                <button className="task-details__delete"><i className="fas fa-trash-alt" />Delete</button>
+                <div className="task-details__edit">
+                    <Edit/>
+                </div>
+                <div className="task-details__delete">
+                    <Delete />
+                </div>
             </div>
             <div className="task-content">
                 <div className="task-content__left">
