@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -6,13 +6,14 @@ import {
     Link,
     useParams
 } from "react-router-dom";
-import { Button, message } from 'antd';
+import { message } from 'antd';
 import 'antd/dist/antd.css';
 import '../styles/task-details.css';
 import { Back } from '../svg';
-import data from '../data.json';
 import Edit from '../components/Edit';
 import Delete from '../components/Delete';
+import axios from "axios";
+
 
 function confirm(e) {
     console.log(e);
@@ -26,11 +27,15 @@ function cancel(e) {
 
 function TaskDetails(props) {
     let { id } = useParams()
-    if (!data[id - 1]) {
-        window.location.replace('/page404')
-    }
-    const [detail, setDetail] = useState(data[id - 1]);
-
+    const urlToDo= 'https://60faace37ae59c0017166267.mockapi.io/api/v1/todolist/' + id
+    const [todo, setTodo] = useState([]);
+    useEffect(async () => {
+        const result = await axios(
+            urlToDo,
+        );
+        setTodo(result.data);
+      },[]);
+    console.log('todo.length' +todo);
     
     return (
         <div className="task">
@@ -46,7 +51,7 @@ function TaskDetails(props) {
                     <Edit/>
                 </div>
                 <div className="task-details__delete">
-                    <Delete />
+                    <Delete></Delete>
                 </div>
             </div>
             <div className="task-content">
@@ -58,15 +63,14 @@ function TaskDetails(props) {
                     <p>Description</p>
                 </div>
                 <div className="task-content__right">
-                    <p className="title">{detail.title}</p>
-                    <p className="status" >{detail.action}</p>
-                    <p className="priority" >{detail.id_action_title}</p>
-                    <p className="create-date">19-07-2021 at 10:24 AM</p>
-                    <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p className="title">{todo.title}</p>
+                    <p className="status" >{todo.status}</p>
+                    <p className="priority" >{todo.priority}</p>
+                    <p className="create-date">{todo.create_date}</p>
+                    <p className="description">{todo.description}</p>
                 </div>
             </div>
         </div>
-
     );
 }
 

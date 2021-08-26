@@ -2,7 +2,36 @@ import React, { useState } from 'react';
 import { Form, Input, Modal, Button,Select} from 'antd';
 import 'antd/dist/antd.css';
 import { EditOutlined,PlusSquareOutlined } from '@ant-design/icons';
+import axios from "axios";
 
+function postToDoList(todo){
+    axios.post('https://60faace37ae59c0017166267.mockapi.io/api/v1/todolist/',todo)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+}
+function getDate(){
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
+    return today
+}
+function getIdPriority(priority){
+    var idPriority='#219653'
+    if(priority=='Minor'){
+        idPriority='#219653'
+    }else 
+    if(priority=='Critical'){
+        idPriority="#EB5757"
+    }else 
+    if(priority=='Normal'){
+        idPriority="#F2994A"
+    }
+    return idPriority
+}
 function Add(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const showModal = () => {
@@ -19,6 +48,17 @@ function Add(props) {
     const [form] = Form.useForm();
     const onFinish = (values) => {
         console.log('Success:', values);
+        const todo = {
+            title: values.title,
+            status:values.status,
+            priority:values.priority,
+            id_priority:getIdPriority(values.priority),
+            description:values.description,
+            create_date:getDate()
+          };
+          postToDoList(todo)
+          handleOk()
+
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -44,7 +84,7 @@ function Add(props) {
             <Button style={{background: "#884CB2", color:"white", 'border-radius': '10px'}} icon={<PlusSquareOutlined/>} block onClick={showModal}>
                 Add New
             </Button>
-            <Modal title= "Add New" visible={isModalVisible} onOk={form.submit} onCancel={handleCancel} >
+            <Modal  visible={isModalVisible} onOk={form.submit} onCancel={handleCancel} okText="Create" >
                 <Form
                     name="edit"
                     labelCol={{
@@ -60,6 +100,9 @@ function Add(props) {
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >
+                    <Form.Item >
+                        <h1 style={{ 'font-weight': 'bold','font-size': '36px',color:"#F3477A"}}>Add New</h1>
+                    </Form.Item>
                     <Form.Item
                         name="title"
                         rules={[

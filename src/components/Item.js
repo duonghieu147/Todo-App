@@ -8,11 +8,18 @@ import {
 
 
 function Item(props) {
-    const [action, setAction] = useState(props.action);
-    const [bgc, setBgc] = useState(props.bgc);
     const id = props.id;
+    const [status, setStatus] = useState(props.status);
     const urlTask = "/taskdetails/" + id
-    // const [color, setStyles] = useState(styles);
+
+    useEffect(() => {
+        // do your side effect here ...
+        
+        return () => {
+        // Clean up here ...
+        // Executed before the next render or unmount
+        };
+        }, []);
 
     let styles ;
     const stt_pending = {
@@ -31,54 +38,53 @@ function Item(props) {
         background: 'rgba(235, 87, 87, 0.2)',
         color: '#EB5757'
     }
-    if (props.action == "Pending") {
+    if (props.status == "Pending") {
         styles = stt_pending
     }
-    else if (props.action == "In Progress") {
+    else if (props.status == "In Progress") {
         styles = stt_progress
     }
-    else if (props.action == "Completed") {
+    else if (props.status == "Completed") {
         styles = stt_completed
     }
-    else if (props.action == "Canceled") {
+    else if (props.status == "Canceled") {
         styles = stt_canceled
     }
-    // useEffect(() => {
-    //   });
+
     return (
         <div>
             <li>
                 <Link to={urlTask}><p className="li__title" >{props.title}</p></Link>
                 <div>
                     <p className="li__action" style={styles}>
-                        {action}
+                        {status}
                     </p>
                 </div>
                 <div className="li__stt">
                     <svg width={8} height={8} viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx={4} cy={4} r={3} stroke={props.id_action} strokeWidth={2} />
+                        <circle cx={4} cy={4} r={3} stroke={props.id_priority} strokeWidth={2} />
                     </svg>
-                    <p className="li__stt_p">{props.id_action_title}</p>
+                    <p className="li__stt_p">{props.priority}</p>
                 </div>
                 <div className="dropdown">
                     <span>...</span>
                     <div className="dropdown__content" >
                         <div className="in-progress" id="in-progress" onClick={() => {
-                            setAction('In-progress');
+                            setStatus('In-progress');
                             styles = stt_progress
                         }}>
                             <i class="far fa-circle"></i>
                             <p>In Progress</p>
                         </div>
                         <div className="completed" id="completed" onClick={() => {
-                            setAction('Completed');
+                            setStatus('Completed');
                             styles = stt_completed
                         }}>
                             <i class="far fa-check-circle" ></i>
                             <p>Completed</p>
                         </div>
                         <div className="canceled" id="canceled" onClick={() => {
-                            setAction('Canceled');
+                            setStatus('Canceled');
                             styles = stt_canceled
                         }}>
                             <i class="far fa-times-circle" ></i>

@@ -3,64 +3,64 @@
         "id":1,
         "title":"Evaluate the addition and deletion of user IDs1.",
         "bgc":"rgba(242, 153, 74, 0.2)",
-        "action":"Pending",
-        "id_action":"#219653",
-        "id_action_title":"Minor"
+        "status":"Pending",
+        "id_priority":"#219653",
+        "priority":"Minor"
     },
     {
         "id":2,
         "title":"Evaluate the addition and deletion of user IDs2.",
-        "action":"Pending",
+        "status":"Pending",
         "bgc":"rgba(242, 153, 74, 0.2)",
-        "id_action":"#F2994A",
-        "id_action_title":"Normal"
+        "id_priority":"#F2994A",
+        "priority":"Normal"
     },
     {
         "id":3,
         "title":"Evaluate the addition and deletion of user IDs3.",
-        "action":"Canceled",
+        "status":"Canceled",
         "bgc":"rgba(235, 87, 87, 0.2)",
-        "id_action":"#EB5757",
-        "id_action_title":"Critical"
+        "id_priority":"#EB5757",
+        "priority":"Critical"
     },
     {
         "id":4,
         "title":"Evaluate the addition and deletion of user IDs4.",
-        "action":"In Progress",
+        "status":"In Progress",
         "bgc":"rgba(86, 204, 242, 0.2)",
-        "id_action":"#219653",
-        "id_action_title":"Minor"
+        "id_priority":"#219653",
+        "priority":"Minor"
     },
     {
         "id":5,
         "title":"Evaluate the addition and deletion of user IDs5.",
-        "action":"Completed",
+        "status":"Completed",
         "bgc":"rgba(39, 174, 96, 0.2)",
-        "id_action":"#EB5757",
-        "id_action_title":"Critical"
+        "id_priority":"#EB5757",
+        "priority":"Critical"
     },
     {
         "id":6,
         "title":"Evaluate the addition and deletion of user IDs6.",
-        "action":"In Progress",
+        "status":"In Progress",
         "bgc":"rgba(86, 204, 242, 0.2)",
-        "id_action":"#EB5757",
-        "id_action_title":"Critical"
+        "id_priority":"#EB5757",
+        "priority":"Critical"
     },
     {
         "id":7,
         "title":"Evaluate the addition and deletion of user IDs7.",
-        "action":"Canceled",
+        "status":"Canceled",
         "bgc":"rgba(235, 87, 87, 0.2)",
-        "id_action":"#EB5757",
-        "id_action_title":"Critical"
+        "id_priority":"#EB5757",
+        "priority":"Critical"
     },
     {
         "id":8,
         "title":"Evaluate the addition and deletion of user IDs8.",
-        "action":"Completed",
+        "status":"Completed",
         "bgc":"rgba(39, 174, 96, 0.2)",
-        "id_action":"#EB5757",
-        "id_action_title":"Critical"
+        "id_priority":"#EB5757",
+        "priority":"Critical"
     }
 ]

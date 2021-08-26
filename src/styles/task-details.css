@@ -44,7 +44,7 @@ body{
     padding: 0;
     font-family: Poppins;
     font-size: 18px;
-    line-height: 27px;
+    line-height: 40px;
     color: #5C626D;
 }
 .task-details__edit,.task-details__delete{
