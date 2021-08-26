@@ -7,6 +7,8 @@ import {
     BrowserRouter as Router,
     useParams
 } from "react-router-dom";
+import {Minor,Normal,Critical} from '../svg';
+
 
 function putToDoList(urlToDo,todo){
     axios.put(urlToDo,todo)
@@ -133,9 +135,9 @@ function Edit(props) {
                             onBlur={onBlur}
                             onSearch={onSearch}
                         >
-                            <Option value="In Progress">In Progress</Option>
-                            <Option value="Completed">Completed</Option>
-                            <Option value="Canceled">Canceled</Option>
+                            <Option value="In Progress" style={{ color: "#56CCF2" }}><i style={{ 'margin-right': "10px" }} class="far fa-circle"></i>In Progress</Option>
+                            <Option value="Completed" style={{ color: "#219653" }}><i style={{ 'margin-right': "10px" }} class="far fa-check-circle" ></i>Completed</Option>
+                            <Option value="Canceled" style={{ color: "#EB5757" }}><i style={{ 'margin-right': "10px" }} class="far fa-times-circle" ></i>Canceled</Option>
                         </Select>
                     </Form.Item>
                     <Form.Item
@@ -155,9 +157,9 @@ function Edit(props) {
                             onBlur={onBlur}
                             onSearch={onSearch}
                         >
-                            <Option value="Minor">Minor</Option>
-                            <Option value="Normal">Normal</Option>
-                            <Option value="Critical">Critical</Option>
+                            <Option value="Minor"><Minor/>Minor</Option>
+                            <Option value="Normal"><Normal/>Normal</Option>
+                            <Option value="Critical"><Critical/>Critical</Option>
                         </Select>
                     </Form.Item>
                     <Form.Item

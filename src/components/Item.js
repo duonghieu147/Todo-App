@@ -1,10 +1,9 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
+import { PreToDo, Priority } from '../svg';
 
 
 function Item(props) {
@@ -14,17 +13,17 @@ function Item(props) {
 
     useEffect(() => {
         // do your side effect here ...
-        
-        return () => {
-        // Clean up here ...
-        // Executed before the next render or unmount
-        };
-        }, []);
 
-    let styles ;
+        return () => {
+            // Clean up here ...
+            // Executed before the next render or unmount
+        };
+    }, []);
+
+    let styles;
     const stt_pending = {
         background: 'rgba(242, 153, 74, 0.2)',
-        color:' #F2994A'
+        color: ' #F2994A'
     }
     const stt_progress = {
         background: 'rgba(86, 204, 242, 0.2)',
@@ -51,19 +50,34 @@ function Item(props) {
         styles = stt_canceled
     }
 
+    // function setIconPriority(props){
+    //     const priority= props.priority;
+    //     if(priority =='Minor'){
+    //         return <Minor/>
+    //     }else
+    //     if(priority =='Normal'){
+    //         return <Normal/>
+    //     }else
+    //     if(priority =='Critical'){
+    //         return <Critical/>
+    //     }
+    // }
     return (
         <div>
             <li>
-                <Link to={urlTask}><p className="li__title" >{props.title}</p></Link>
+                <div className="li__title">
+                    <div style={{ 'line-height': '34px' }}><PreToDo /></div>
+                    <Link to={urlTask}><p  >{props.title}</p></Link>
+                </div>
                 <div>
                     <p className="li__action" style={styles}>
                         {status}
                     </p>
                 </div>
                 <div className="li__stt">
-                    <svg width={8} height={8} viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx={4} cy={4} r={3} stroke={props.id_priority} strokeWidth={2} />
-                    </svg>
+                    <div className="li__stt__svg">
+                        <Priority id_priority={props.id_priority} />
+                    </div>
                     <p className="li__stt_p">{props.priority}</p>
                 </div>
                 <div className="dropdown">
