@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Input, Modal, Button,Select} from 'antd';
+import { Form, Input, Modal, Button,Select,message} from 'antd';
 import 'antd/dist/antd.css';
-import { EditOutlined,PlusSquareOutlined } from '@ant-design/icons';
+import { PlusSquareOutlined } from '@ant-design/icons';
 import axios from "axios";
+// import { message } from 'antd';
+
+
 
 function postToDoList(todo){
     axios.post('https://60faace37ae59c0017166267.mockapi.io/api/v1/todolist/',todo)
@@ -32,6 +35,12 @@ function getIdPriority(priority){
     }
     return idPriority
 }
+
+const success = () => {
+    message.success('Add New Success',3);
+  };
+  
+
 function Add(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const showModal = () => {
@@ -48,6 +57,9 @@ function Add(props) {
     const [form] = Form.useForm();
     const onFinish = (values) => {
         console.log('Success:', values);
+        if (!values.status){
+            values.status="Pending"
+        }
         const todo = {
             title: values.title,
             status:values.status,
@@ -58,7 +70,9 @@ function Add(props) {
           };
           postToDoList(todo)
           handleOk()
-
+          success()
+        //   window.location.replace('/')
+          
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);

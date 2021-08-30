@@ -4,21 +4,16 @@ import {
     Link
 } from "react-router-dom";
 import { PreToDo, Priority } from '../svg';
+import { Menu, Dropdown, Button } from 'antd';
+import axios from "axios";
+import DropdownStt from './DropdownStt';
+
 
 
 function Item(props) {
     const id = props.id;
     const [status, setStatus] = useState(props.status);
     const urlTask = "/taskdetails/" + id
-
-    useEffect(() => {
-        // do your side effect here ...
-
-        return () => {
-            // Clean up here ...
-            // Executed before the next render or unmount
-        };
-    }, []);
 
     let styles;
     const stt_pending = {
@@ -49,19 +44,27 @@ function Item(props) {
     else if (props.status == "Canceled") {
         styles = stt_canceled
     }
-
-    // function setIconPriority(props){
-    //     const priority= props.priority;
-    //     if(priority =='Minor'){
-    //         return <Minor/>
-    //     }else
-    //     if(priority =='Normal'){
-    //         return <Normal/>
-    //     }else
-    //     if(priority =='Critical'){
-    //         return <Critical/>
-    //     }
-    // }
+    
+    const menu = (
+        <Menu>
+            <Menu.Item key="0" >
+                <div style={{ 'display': 'flex', color: '#56CCF2'}} >
+                    <i class="far fa-circle" style={{ 'line-height': '24px' }}></i><p style={{ 'margin-left': '10px' }}>In Progress</p>
+                </div>
+            </Menu.Item>
+            <Menu.Item key="1" >
+                <div style={{ 'display': 'flex', color: '#219653'}} >
+                    <i class="far fa-check-circle" style={{ 'line-height': '24px' }}></i><p style={{ 'margin-left': '10px' }}>Completed</p>
+                </div>
+            </Menu.Item>
+            <Menu.Item key="2">
+            {/* onClick={putStt(id,"Canceled")} */}
+                <div style={{ 'display': 'flex', color: "#EB5757"}} >
+                    <i class="far fa-times-circle" style={{ 'line-height': '24px' }}></i><p style={{ 'margin-left': '10px' }}>Canceled</p>
+                </div>
+            </Menu.Item>
+        </Menu>
+    );
     return (
         <div>
             <li>
@@ -80,31 +83,17 @@ function Item(props) {
                     </div>
                     <p className="li__stt_p">{props.priority}</p>
                 </div>
+                {/* <div className="dropdown">
+                    <DropdownStt />
+                 </div> */}
                 <div className="dropdown">
-                    <span>...</span>
-                    <div className="dropdown__content" >
-                        <div className="in-progress" id="in-progress" onClick={() => {
-                            setStatus('In-progress');
-                            styles = stt_progress
+                    <Dropdown overlay={menu} trigger={['click']}>
+                        <a className="ant-dropdown-link" onClick={e => {
+                            e.preventDefault()
                         }}>
-                            <i class="far fa-circle"></i>
-                            <p>In Progress</p>
-                        </div>
-                        <div className="completed" id="completed" onClick={() => {
-                            setStatus('Completed');
-                            styles = stt_completed
-                        }}>
-                            <i class="far fa-check-circle" ></i>
-                            <p>Completed</p>
-                        </div>
-                        <div className="canceled" id="canceled" onClick={() => {
-                            setStatus('Canceled');
-                            styles = stt_canceled
-                        }}>
-                            <i class="far fa-times-circle" ></i>
-                            <p>Canceled</p>
-                        </div>
-                    </div>
+                            <Button shape="circle" size="small">...</Button>
+                        </a>
+                    </Dropdown>
                 </div>
             </li>
         </div>
@@ -112,3 +101,26 @@ function Item(props) {
 }
 
 export default Item;
+
+// function putStt(id_todo,stt){
+//     const todo = {
+//         status:stt,
+//         create_date:getDate()
+//       };
+//       const urlToDoStt='https://60faace37ae59c0017166267.mockapi.io/api/v1/todolist/'+id_todo;
+//       console.log(urlToDoStt)
+//     axios.put(urlToDoStt,todo)
+//       .then(res => {
+//         console.log(res);
+//         console.log(res.data);
+//       })
+// }
+
+// function getDate(){
+//     var today = new Date();
+//     var dd = String(today.getDate()).padStart(2, '0');
+//     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+//     var yyyy = today.getFullYear();
+//     today = mm + '/' + dd + '/' + yyyy;
+//     return today
+// }

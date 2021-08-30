@@ -127,7 +127,11 @@ body{
 }
 
 /* DropDown  */
-.dropdown span {
+.dropdown {
+    line-height: 34px;
+  }
+
+/* .dropdown span {
     border-radius: 50%;
     background:rgba(242, 242, 242, 0.2);
 }
@@ -167,7 +171,7 @@ body{
 .dropdown__content .in-progress,.completed,.canceled{
     display: flex;
     justify-content: space-between;
-}
+} */
 
 
 /* Color  */

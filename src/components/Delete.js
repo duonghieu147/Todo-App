@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button,message } from 'antd';
 import 'antd/dist/antd.css';
 import { DeleteOutlined } from '@ant-design/icons';
 import axios from "axios";
 import {
     BrowserRouter as Router,
-    useParams
+    useParams,useHistory
 } from "react-router-dom";
+
+const success = () => {
+    message.success('Delete Success');
+  };
 function Delete(props) {
     let { id } = useParams();
+    let history = useHistory();
     const urltodo='https://60faace37ae59c0017166267.mockapi.io/api/v1/todolist/' +id;
 
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,7 +30,10 @@ function Delete(props) {
         console.log(res.data);
       })
         setIsModalVisible(false);
+        success()
+        history.push('/')
         // window.location.replace('/');
+
     };
 
     const handleCancel = () => {

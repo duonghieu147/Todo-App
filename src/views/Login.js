@@ -3,11 +3,20 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import '../styles/login.css'
+import { message } from 'antd';
 
 const SignupSchema = yup.object().shape({
     username: yup.string().required(),
     password: yup.string().required()
 });
+
+const success = () => {
+    message.success('Login success');
+  };
+  
+  const error = () => {
+    message.error('Login error ');
+  };
 
 function Login(props) {
     const {
@@ -61,7 +70,7 @@ function checkUser(username, password) {
             var tb = false
             data.forEach(element => {
                 if (username == element.username && password == element.password) {
-                    alert('Login Success');
+                    success()
                     localStorage.setItem('accessToken', true);
                     window.location.replace('/')
                     tb = true
@@ -69,7 +78,8 @@ function checkUser(username, password) {
             }
             );
             if (!tb) {
-                alert('Login Failure')
+                // alert('Login Failure')
+                error()
             }
         })
         .catch(error => console.log("Loading data user error"));
